@@ -214,33 +214,33 @@ namespace Practico2LINQ
 
 
             //ejercicio A
-            var alumnoConMayorNota = ListaDeAlumnos.OrderByDescending(alumnos => alumnos.getNota()).FirstOrDefault();
+            var alumnoConMayorNota = ListaDeAlumnos.OrderByDescending(alumnos => alumnos.nota).FirstOrDefault();
             
             
-                Console.WriteLine($"El alumno con mayor nota es{alumnoConMayorNota.getNombre()}");
+                Console.WriteLine($"El alumno con mayor nota es{alumnoConMayorNota.nombre}");
 
 
             //ejercicio B
-            var alumnoMasJoven = ListaDeAlumnos.OrderBy(alumnos => alumnos.getEdad()).FirstOrDefault();
+            var alumnoMasJoven = ListaDeAlumnos.OrderBy(alumnos => alumnos.edad).FirstOrDefault();
 
-            Console.WriteLine($"El alumno mas joven es{alumnoMasJoven.getNombre()}");
+            Console.WriteLine($"El alumno mas joven es{alumnoMasJoven.nombre}");
            
             
             //ejercici C
-            var promedioEnEdadDeLosAlumnos = ListaDeAlumnos.Average(alumnos => alumnos.getEdad());
+            var promedioEnEdadDeLosAlumnos = ListaDeAlumnos.Average(alumnos => alumnos.edad);
           
                 Console.WriteLine($"El promedio de alumnos es,{promedioEnEdadDeLosAlumnos}");
           
 
             //ejercicio D
-            var alumnoReprobado = ListaDeAlumnos.Any(alumnos => alumnos.getNota() < 6);
+            var alumnoReprobado = ListaDeAlumnos.Any(alumnos => alumnos.nota < 6);
           
                 Console.WriteLine(alumnoReprobado ? "SI" : "NO");
           
 
             //ejercicio E
 
-            var alumnosMayoresATreintaAprobados = ListaDeAlumnos.Where(alumnos => alumnos.getNota() >= 6 && alumnos.getEdad() > 30).ToList();
+            var alumnosMayoresATreintaAprobados = ListaDeAlumnos.Where(alumnos => alumnos.nota >= 6 && alumnos.edad > 30).ToList();
             foreach (var alumno in ListaDeAlumnos)
             {
                 Console.WriteLine(alumnosMayoresATreintaAprobados);
@@ -248,8 +248,8 @@ namespace Practico2LINQ
 
             //ejercicio F
 
-            var agruparAprobados = ListaDeAlumnos.Where(alumnos => alumnos.getNota() >= 6).ToList();
-            var agruparSuspendidos = ListaDeAlumnos.Where(alumnos => alumnos.getNota() < 6).ToList();
+            var agruparAprobados = ListaDeAlumnos.Where(alumnos => alumnos.nota >= 6).ToList();
+            var agruparSuspendidos = ListaDeAlumnos.Where(alumnos => alumnos.nota < 6).ToList();
             //hay que hacer dos foreach diferentes para cada uno de los wheres anteriores
             foreach (var alumno in ListaDeAlumnos)
             {
@@ -257,7 +257,7 @@ namespace Practico2LINQ
             }
 
             //ejercicio G
-            var nombreMasLargo = ListaDeAlumnos.OrderByDescending(alumnos => alumnos.getNombre().Length).ToList();
+            var nombreMasLargo = ListaDeAlumnos.OrderByDescending(alumnos => alumnos.nombre.Length).ToList();
 
             foreach ( var largoDeNombre in nombreMasLargo)
             {
@@ -265,7 +265,7 @@ namespace Practico2LINQ
             }
 
             //ejercicio H
-            var agrupadosPorLongitudDeNombre = ListaDeAlumnos.GroupBy(alumnos => alumnos.getNombre().Length).Where(EdadDeAlumnos => EdadDeAlumnos.Sum(sumaDeEdades => sumaDeEdades.getEdad()) > 60).ToList();
+            var agrupadosPorLongitudDeNombre = ListaDeAlumnos.GroupBy(alumnos => alumnos.nombre.Length).Where(EdadDeAlumnos => EdadDeAlumnos.Sum(sumaDeEdades => sumaDeEdades.getEdad()) > 60).ToList();
             foreach (var grupoAlumnos in agrupadosPorLongitudDeNombre)
             {
                 var nombres = grupoAlumnos.ToList().Select(alumno => alumno.getNombre().ToList());
@@ -275,7 +275,7 @@ namespace Practico2LINQ
 
             //ejercicio I
 
-            var alumnosOrdenados = ListaDeAlumnos.OrderBy(ordenPorNombre => ordenPorNombre.getNombre().Length).ThenByDescending(ordenPorEdad => ordenPorEdad.getEdad()).ToList();
+            var alumnosOrdenados = ListaDeAlumnos.OrderBy(ordenPorNombre => ordenPorNombre.nombre.Length).ThenByDescending(ordenPorEdad => ordenPorEdad.getEdad()).ToList();
             foreach (var ordenEnNombreYEdadDeAlumnos in alumnosOrdenados)
             {
                 Console.WriteLine(alumnosOrdenados);

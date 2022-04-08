@@ -24,6 +24,10 @@ namespace Practico2LINQ
         }
 
 
+        public int edad { get => edad; set => edad = value; }
+        public int nota { get => nota; set => nota = value; }
+        public int nombre { get => nombre; set => nombre = value; }
+
     }
 
 }
